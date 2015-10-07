@@ -12,10 +12,13 @@ BBP provides very fast compression for image like data and sequences with very h
 > cmake .
 
 > make
+
 and possibly (as root)
+
 > make install
 
 > ldconfig
+
 this will also install the bbp executable which can be used to compress and decompress files using BBP.
 
 # Usage
