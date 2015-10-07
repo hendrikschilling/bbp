@@ -1,0 +1,9 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: BlockwiseBitPacking
+Description: extemely fast image compression library
+Version: 0.1
+Cflags: -I${includedir} 
+Libs: -L${libdir} -lbbp
