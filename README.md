@@ -1,16 +1,14 @@
-Main Page {#mainpage}
+Main Page
 =========
 
-[TOC]
-
-# Introduction {#intro}
+# Introduction
 This is the implementation for the paper "High Speed Lossless Image Compression" [[1]](#f1), see the paper for an overview and evaluation of the compression method.
 
 BBP provides very fast compression for image like data and sequences with very high correlation. Compression is based on delta coding for a specified offset, data rates reach over 6GiB/s, using a single core of an Intel(R) Core(TM) i7-2600 @ 3.40GHz.
 
 \b WARNING: The file format is still subject to change! Experimental use only!
 
-# Installation {#install}
+# Installation
 > cmake .
 
 > make
@@ -20,11 +18,11 @@ and possibly (as root)
 > ldconfig
 this will also install the bbp executable which can be used to compress and decompress files using BBP.
 
-# Usage {#usage}
+# Usage
 See bbp.h for the details, library must be intialized with bbp_init() before usage, and shut down with bbp_shutdown() afterwards.
 Compression is executed from buffer to buffer with bbp_code_offset() and decoding with bbp_decode().
 
-# Performance {#performance}
+# Performance
 
 
 A few examples, using the sintel trailer from https://media.xiph.org/video/derf/y4m/sintel_trailer_2k_480p24.y4m (735MB). All examples on an core i7-860 @ 2.8Ghz
@@ -97,10 +95,10 @@ A few examples, using the sintel trailer from https://media.xiph.org/video/derf/
     user    0m1.703s
     sys     0m0.280s
 
-# A Note on Compilers {#compilers}
+# A Note on Compilers
 The library was tested and developed with gcc on Linux, clang on Mac should also work (but might be broken at any given time). Others are not supported at the moment.
 
-# Coding Style {#style}
+# Coding Style
 Code is supposed to be C99, but with some quirks. In many places LTO is used to split implementation from declaration while still keeping inline capability. In such cases we do specify the inline keyword in the header, which provokes warnings by gcc, but not only compiles, but seems to actually be used by gcc for inline decisions when using LTO. Change the CFINLINE define in globals.h header to compare different declarations (example performance: 2468MiB/s vs 2670MiB/s).
 
 <b id="f1">[1]</b> Hendrik Siedelmann, Alexander Wender, Martin Fuchs, High Speed Lossless Image Compression, 37th German Conference on Pattern Recognition, Aachen, Germany, 7-9 September 2015, [http://go.visus.uni-stuttgart.de/hslic](http://go.visus.uni-stuttgart.de/hslic)
